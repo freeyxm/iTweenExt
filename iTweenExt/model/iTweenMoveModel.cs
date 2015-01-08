@@ -44,14 +44,14 @@ public class iTweenMoveModel : iTweenCommTransModel
     public double m_lookAhead = iTween.Defaults.lookAhead;
 
     /// <summary>
-    /// for whether to animate in world space or relative to the parent. False by default.
-    /// </summary>
-    public bool m_isLocal = iTween.Defaults.isLocal;
-
-    /// <summary>
     /// Restricts rotation to the supplied axis only.
     /// </summary>
     public string m_axis;
+
+    /// <summary>
+    /// for whether to animate in world space or relative to the parent. False by default.
+    /// </summary>
+    public bool m_isLocal = iTween.Defaults.isLocal;
 
     /// <summary>
     /// for applying the transformation in either the world coordinate or local cordinate system. Defaults to local space.
