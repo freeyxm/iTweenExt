@@ -16,82 +16,82 @@ public class iTweenMoveModel : iTweenCommTransModel
     /// <summary>
     /// for a list of points to draw a Catmull-Rom through for a curved animation path.
     /// </summary>
-    public Vector3[] path;
+    public Vector3[] m_path;
 
     /// <summary>
     /// for whether to automatically generate a curve from the GameObject's current position to the beginning of the path. True by default.
     /// </summary>
-    public bool moveToPath = true;
+    public bool m_moveToPath = true;
 
     /// <summary>
     /// for whether or not the GameObject will orient to its direction of travel.  False by default.
     /// </summary>
-    public bool orientToPath = iTween.Defaults.orientToPath;
+    public bool m_orientToPath = iTween.Defaults.orientToPath;
 
     /// <summary>
     /// for a target the GameObject will look at.
     /// </summary>
-    public Vector3 lookTarget;
+    public Vector3 m_lookTarget;
 
     /// <summary>
     /// for the time in seconds the object will take to look at either the "looktarget" or "orienttopath".
     /// </summary>
-    public double lookTime;
+    public double m_lookTime;
 
     /// <summary>
     /// for how much of a percentage to look ahead on a path to influence how strict "orientopath" is.
     /// </summary>
-    public double lookAhead = iTween.Defaults.lookAhead;
+    public double m_lookAhead = iTween.Defaults.lookAhead;
 
     /// <summary>
     /// for whether to animate in world space or relative to the parent. False by default.
     /// </summary>
-    public bool isLocal = iTween.Defaults.isLocal;
+    public bool m_isLocal = iTween.Defaults.isLocal;
 
     /// <summary>
     /// Restricts rotation to the supplied axis only.
     /// </summary>
-    public string axis;
+    public string m_axis;
 
     /// <summary>
     /// for applying the transformation in either the world coordinate or local cordinate system. Defaults to local space.
     /// </summary>
-    public Space space = iTween.Defaults.space;
+    public Space m_space = iTween.Defaults.space;
 
     protected override void GetArgs(Hashtable args)
     {
-        if (actionType == ActionType.Action_By || actionType == ActionType.Action_Add)
+        if (m_actionType == ActionType.Action_By || m_actionType == ActionType.Action_Add)
         {
             base.SetTranStr("amount");
         }
         base.GetArgs(args);
 
-        if (path.Length > 0)
-            args.Add("path", path);
+        if (m_path.Length > 0)
+            args.Add("path", m_path);
 
-        if (moveToPath != false)
-            args.Add("movetopath", moveToPath);
+        if (m_moveToPath != false)
+            args.Add("movetopath", m_moveToPath);
 
-        if (orientToPath != iTween.Defaults.orientToPath)
-            args.Add("orienttopath", orientToPath);
+        if (m_orientToPath != iTween.Defaults.orientToPath)
+            args.Add("orienttopath", m_orientToPath);
 
-        if (!lookTarget.Equals(Vector3.zero))
-            args.Add("looktarget", lookTarget);
+        if (!m_lookTarget.Equals(Vector3.zero))
+            args.Add("looktarget", m_lookTarget);
 
-        if (!lookTime.Equals(0.0))
-            args.Add("looktime", lookTime);
+        if (!m_lookTime.Equals(0.0))
+            args.Add("looktime", m_lookTime);
 
-        if (!lookAhead.Equals(iTween.Defaults.lookAhead))
-            args.Add("lookahead", lookAhead);
+        if (!m_lookAhead.Equals(iTween.Defaults.lookAhead))
+            args.Add("lookahead", m_lookAhead);
 
-        if (isLocal != iTween.Defaults.isLocal)
-            args.Add("islocal", isLocal);
+        if (m_isLocal != iTween.Defaults.isLocal)
+            args.Add("islocal", m_isLocal);
 
-        if (!string.IsNullOrEmpty(axis))
-            args.Add("axis", axis);
+        if (!string.IsNullOrEmpty(m_axis))
+            args.Add("axis", m_axis);
 
-        if (space != iTween.Defaults.space)
-            args.Add("space", space);
+        if (m_space != iTween.Defaults.space)
+            args.Add("space", m_space);
     }
 
     public override void DoAction(GameObject target)
@@ -101,7 +101,7 @@ public class iTweenMoveModel : iTweenCommTransModel
 
         base.DoAction(target);
 
-        switch (actionType)
+        switch (m_actionType)
         {
             case ActionType.Action_From:
                 iTween.MoveFrom(target, args);

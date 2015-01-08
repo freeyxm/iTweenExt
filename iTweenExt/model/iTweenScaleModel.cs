@@ -15,7 +15,7 @@ public class iTweenScaleModel : iTweenCommTransModel
 
     protected override void GetArgs(Hashtable args)
     {
-        if (actionType == ActionType.Action_By || actionType == ActionType.Action_Add)
+        if (m_actionType == ActionType.Action_By || m_actionType == ActionType.Action_Add)
         {
             base.SetTranStr("amount");
         }
@@ -27,7 +27,7 @@ public class iTweenScaleModel : iTweenCommTransModel
         Hashtable args = new Hashtable();
         GetArgs(args);
 
-        switch (actionType)
+        switch (m_actionType)
         {
             case ActionType.Action_From:
                 iTween.ScaleFrom(target, args);

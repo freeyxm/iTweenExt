@@ -16,26 +16,26 @@ public class iTweenRotateModel : iTweenCommTransModel
     /// <summary>
     /// for applying the transformation in either the world coordinate or local cordinate system. Defaults to local space.
     /// </summary>
-    public Space space = iTween.Defaults.space;
+    public Space m_space = iTween.Defaults.space;
 
     /// <summary>
     /// for whether to animate in world space or relative to the parent. False by default.
     /// </summary>
-    public bool isLocal = iTween.Defaults.isLocal;
+    public bool m_isLocal = iTween.Defaults.isLocal;
 
     protected override void GetArgs(Hashtable args)
     {
-        if (actionType == ActionType.Action_By || actionType == ActionType.Action_Add)
+        if (m_actionType == ActionType.Action_By || m_actionType == ActionType.Action_Add)
         {
             base.SetTranStr("amount");
         }
         base.GetArgs(args);
 
-        if (space != iTween.Defaults.space)
-            args.Add("space", space);
+        if (m_space != iTween.Defaults.space)
+            args.Add("space", m_space);
 
-        if (isLocal != iTween.Defaults.isLocal)
-            args.Add("islocal", isLocal);
+        if (m_isLocal != iTween.Defaults.isLocal)
+            args.Add("islocal", m_isLocal);
     }
 
     public override void DoAction(GameObject target)
@@ -43,7 +43,7 @@ public class iTweenRotateModel : iTweenCommTransModel
         Hashtable args = new Hashtable();
         GetArgs(args);
 
-        switch (actionType)
+        switch (m_actionType)
         {
             case ActionType.Action_From:
                 iTween.RotateFrom(target, args);

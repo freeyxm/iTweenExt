@@ -32,13 +32,13 @@ public class iTweenMethodsModel
         public iTweenMethod onupdate;
         public iTweenMethod oncomplete;
     }
-    public Methods methods;
+    public Methods m_methods;
 
     protected virtual void GetArgs(Hashtable args)
     {
-        GetArgs(args, "onstart", methods.onstart);
-        GetArgs(args, "onupdate", methods.onupdate);
-        GetArgs(args, "oncomplete", methods.oncomplete);
+        GetArgs(args, "onstart", m_methods.onstart);
+        GetArgs(args, "onupdate", m_methods.onupdate);
+        GetArgs(args, "oncomplete", m_methods.oncomplete);
     }
 
     static void GetArgs(Hashtable args, string name, iTweenMethod method)

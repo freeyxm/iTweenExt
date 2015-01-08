@@ -8,6 +8,10 @@ public class iTweenBase : MonoBehaviour
 {
     public string m_name;
 
+    void Start()
+    { 
+    }
+
     public virtual bool StartITweenAction(string name)
     {
         return (string.IsNullOrEmpty(m_name) || m_name.Equals(name) || "_ALL_".Equals(name));

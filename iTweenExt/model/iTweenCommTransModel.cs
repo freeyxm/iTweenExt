@@ -26,7 +26,7 @@ public class iTweenCommTransModel : iTweenCommModel
         mTranStr = _tranStr;
     }
 
-    public ActionType actionType;
+    public ActionType m_actionType;
 
     [System.Serializable]
     public struct Target
@@ -54,24 +54,24 @@ public class iTweenCommTransModel : iTweenCommModel
         /// </summary>
         public double z;
     };
-    public Target target;
+    public Target m_target;
 
     protected override void GetArgs(Hashtable args)
     {
         base.GetArgs(args);
 
-        if (target.type == AxisType.Axis_A && !string.IsNullOrEmpty(mTranStr))
+        if (m_target.type == AxisType.Axis_A && !string.IsNullOrEmpty(mTranStr))
         {
-            args.Add(mTranStr, target.value);
+            args.Add(mTranStr, m_target.value);
         }
         else
         {
-            if ((target.type & AxisType.Axis_X) != 0)
-                args.Add("x", target.x);
-            if ((target.type & AxisType.Axis_Y) != 0)
-                args.Add("y", target.y);
-            if ((target.type & AxisType.Axis_Z) != 0)
-                args.Add("z", target.z);
+            if ((m_target.type & AxisType.Axis_X) != 0)
+                args.Add("x", m_target.x);
+            if ((m_target.type & AxisType.Axis_Y) != 0)
+                args.Add("y", m_target.y);
+            if ((m_target.type & AxisType.Axis_Z) != 0)
+                args.Add("z", m_target.z);
         }
     }
 
